@@ -1,0 +1,196 @@
+// 360度旋转 正
+@mixin my_round_animate($time:50s) {
+  -webkit-animation: my_round_animate $time linear infinite;
+  animation        : my_round_animate $time linear infinite;
+
+  @keyframes my_round_animate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+// 360度旋转 反
+@mixin my_round_animate2($time:50s) {
+  -webkit-animation: myroundanimate2 $time linear infinite;
+  animation        : myroundanimate2 $time linear infinite;
+
+  @keyframes myroundanimate2 {
+    to {
+      transform: rotate(-1turn);
+    }
+  }
+}
+
+// 闪烁 呼吸
+@mixin breath($time:4s) {
+  -webkit-animation: breath $time ease-in-out infinite;
+  animation        : breath $time ease-in-out infinite;
+
+  @keyframes breath {
+    from {
+      opacity: 0.4;
+    }
+
+    /* 动画开始时的不透明度 */
+    50% {
+      opacity: 1;
+    }
+
+    /* 动画50% 时的不透明度 */
+    to {
+      opacity: 0.4;
+    }
+
+    /* 动画结束时的不透明度 */
+  }
+}
+
+// 上下浮动
+@mixin updown($time:4, $distance:4) {
+  -webkit-animation : bounce-down #{$time}s linear infinite;
+  animation         : bounce-down #{$time}s linear infinite;
+
+
+  @keyframes bounce-down {
+    25% {
+      transform: translateY(-#{$distance}px);
+    }
+
+    50%,
+    100% {
+      transform: translateY(0);
+    }
+
+    75% {
+      transform: translateY(#{$distance}px);
+    }
+  }
+}
+
+// 左右上下浮动
+@mixin bouncedown($time:12, $distance:0.15, $rl:0.08, $ff:bounce-down) {
+  -webkit-animation: $ff #{$time}s linear infinite;
+  animation        : $ff #{$time}s linear infinite;
+
+
+  @keyframes bounce-down {
+    25% {
+      // transform: translateY(-#{$distance}rem);
+      transform: translateX(#{$rl}rem);
+    }
+
+    50%,
+    100% {
+      transform: translateY(0);
+      transform: translateX(0);
+    }
+
+    75% {
+      transform    : translateY(#{$distance}rem);
+      // transform : translateX(#{$rl}rem);
+    }
+  }
+
+  @keyframes bounce-down2 {
+    25% {
+      transform   : translateY(#{$distance}rem);
+      // transform: translateX(#{$rl}rem);
+    }
+
+    50%,
+    100% {
+      transform: translateY(0);
+      transform: translateX(0);
+    }
+
+    75% {
+      // transform    : translateY(#{$distance}rem);
+      transform : translateX(#{$rl}rem);
+    }
+  }
+}
+
+// 左右摇动
+@mixin sw_ing($time:8) {
+  animation        : swing #{$time}s linear infinite;
+  -moz-animation   : swing #{$time}s linear infinite;
+  -webkit-animation: swing #{$time}s linear infinite;
+  -o-animation     : swing #{$time}s linear infinite;
+
+  @keyframes swing {
+    10% {
+      transform: rotate(4deg);
+    }
+
+    20% {
+      transform: rotate(-5deg);
+    }
+
+    30% {
+      transform: rotate(5deg);
+    }
+
+    40% {
+      transform: rotate(-5deg);
+    }
+
+    60% {
+      transform: rotate(5deg);
+    }
+
+    70% {
+      transform: rotate(-5deg);
+    }
+
+    80% {
+      transform: rotate(5deg);
+    }
+
+    90% {
+      transform: rotate(-5deg);
+    }
+
+    50%,
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+// 无限放大缩小
+@mixin scale_draw($enlarge:1.1, $narrow:1, $time:7) {
+  -webkit-animation: scaleDraw #{$time}s ease-in-out infinite;
+  animation        : scaleDraw #{$time}s ease-in-out infinite;
+
+  @keyframes scaleDraw {
+
+    0%,
+    50% {
+      transform: scale($narrow);
+    }
+
+    25%,
+    75% {
+      transform: scale($enlarge);
+    }
+  }
+}
+
+// 隐显
+@mixin fade_num($time:8, $op1:1, $op2:0.3) {
+  -webkit-animation: fadenum #{$time}s ease-in-out infinite;
+  animation        : fadenum #{$time}s ease-in-out infinite;
+
+  @keyframes fadenum {
+
+    0%,
+    100% {
+      opacity: $op1;
+    }
+
+    50% {
+      opacity: $op2;
+    }
+  }
+}

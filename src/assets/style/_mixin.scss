@@ -1,0 +1,114 @@
+// 字体
+@mixin mytext($fs: 18, $ff: 'Regular', $fw: 400, $color: #fff) {
+  font-size: $fs;
+  font-family: $ff;
+  font-weight: $fw;
+  color: $color;
+}
+
+// 辅助布局 背景色
+@mixin b-g($color: #000, $alpha: 0.1) {
+  background: rgba($color, $alpha);
+}
+
+// 全屏
+@mixin allBox {
+  width: 100%;
+  height: 100vh;
+
+  padding: 0;
+  margin: 0;
+
+  position: relative;
+}
+
+// display flex
+@mixin d-j-a-f($a: center, $b: center, $c: row) {
+  display: flex;
+  justify-content: $a;
+  align-items: $b;
+  flex-direction: $c;
+}
+
+// 绝对定位
+@mixin p-a($x: 0, $top: 0, $bottom: 0, $left: 0, $right: 0) {
+  position: absolute;
+
+  @if $top != 't' {
+    top: $top;
+  }
+
+  @if $bottom != 'b' {
+    bottom: $bottom;
+  }
+
+  @if $left != 'l' {
+    left: $left;
+  }
+
+  @if $right != 'r' {
+    right: $right;
+  }
+
+  // $x
+  @if $x==1 {
+    margin: 0 auto;
+  } @else if $x==2 {
+    margin: auto 0;
+  } @else if $x==3 {
+    margin: auto;
+  } @else {
+  }
+}
+
+// 动画 start ===================================================
+// 文字无缝滚动
+@mixin inner-container {
+  animation: myMove 5s linear infinite;
+  animation-fill-mode: forwards;
+
+  @keyframes myMove {
+    0% {
+      transform: translateX(0px);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+// 动画 end ===================================================
+
+// 效果 start ===================================================
+
+// 字体发光效果
+@mixin textShadow($a) {
+  text-shadow: 0 0 0.1rem $a, 0 0 0.2rem $a, 0 0 0.3rem $a, 0 0 0.4rem $a;
+}
+
+// 字体渐变效果
+@mixin gradient-text-one($fx: top, $yss...) {
+  background-image: -webkit-linear-gradient($fx, $yss);
+  background-image: linear-gradient($fx, $yss);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// 背景渐变
+@mixin bgjb($nr) {
+  background-image: linear-gradient($nr);
+  background-image: -webkit-linear-gradient($nr);
+  background-image: -webkit-gradient($nr);
+  background-image: -moz-linear-gradient($nr);
+  background-image: -o-linear-gradient($nr);
+}
+
+// 四周阴影
+@mixin boxShadow($color, $px: 10px) {
+  -webkit-box-shadow: $color 0 0 #{$px};
+  -moz-box-shadow: $color 0 0 #{$px};
+  box-shadow: $color 0 0 #{$px};
+}
+
+// 效果 end ===================================================
