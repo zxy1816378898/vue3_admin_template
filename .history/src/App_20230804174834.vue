@@ -30,17 +30,5 @@
 </template>
 
 <script setup>
-import {getInfo } from '@/api/home';
-import { onMounted } from 'vue';
 
-onMounted(() => {
-  getInfo2();
-});
-
-const getInfo2 = () => {
-  getInfo().then((res) => {
-    console.log(res);
-  });
-};
-
- </script>
+</script>

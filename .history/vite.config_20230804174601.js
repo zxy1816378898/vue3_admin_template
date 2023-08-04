@@ -35,10 +35,11 @@ export default defineConfig({
     port: 97,
     host: true,
     open: true,
-    hmr: true,
     proxy: {
+      // https://cn.vitejs.dev/config/#server-proxy
       '/dev-api': {
-        target: 'http://localhost:97',
+        target: 'losthost:97',
+
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/dev-api/, ''),
       },

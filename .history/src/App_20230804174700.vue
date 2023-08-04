@@ -30,17 +30,12 @@
 </template>
 
 <script setup>
-import {getInfo } from '@/api/home';
-import { onMounted } from 'vue';
-
-onMounted(() => {
-  getInfo2();
-});
-
-const getInfo2 = () => {
-  getInfo().then((res) => {
-    console.log(res);
+axios.get('./api/user/info')
+  .then(response => {
+    // 处理响应数据
+    console.log(response);
+  })
+  .catch(error => {
+    // 处理请求错误
   });
-};
-
- </script>
+</script>

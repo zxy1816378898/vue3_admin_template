@@ -30,15 +30,19 @@ export default defineConfig({
           '@import "@/assets/style/_defaultstyle.scss";@import "@/assets/style/_mixin.scss";@import "@/assets/style/_mixinanimate.scss";@import "@/assets/style/_variables.scss";',
       },
     },
-  },
+  }
   server: {
-    port: 97,
+    port: 8094,
     host: true,
     open: true,
-    hmr: true,
     proxy: {
+      // https://cn.vitejs.dev/config/#server-proxy
       '/dev-api': {
-        target: 'http://localhost:97',
+        target: 'http://192.168.2.100:8900',
+        //target: 'http://192.168.2.160:8900',
+        //target: 'http://172.20.5.53:8900',
+        // target: 'http://localhost:8099',
+        //target: 'http://106.14.79.26:8900',
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/dev-api/, ''),
       },

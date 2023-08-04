@@ -31,13 +31,8 @@
 
 <script setup>
 import {getInfo } from '@/api/home';
-import { onMounted } from 'vue';
 
-onMounted(() => {
-  getInfo2();
-});
-
-const getInfo2 = () => {
+const getInfo = () => {
   getInfo().then((res) => {
     console.log(res);
   });
