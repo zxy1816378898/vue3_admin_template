@@ -6,7 +6,7 @@
         <!-- 登录的表单 -->
         <el-form class="login_form" :model="loginForm" :rules="rules" ref="loginForms">
           <h1>Hello</h1>
-          <h2>欢迎来到硅谷甄选</h2>
+          <h2>欢迎来到智慧南工</h2>
           <el-form-item prop="username">
             <el-input :prefix-icon="User" v-model="loginForm.username"></el-input>
           </el-form-item>
@@ -124,8 +124,9 @@ const rules = {
 
   .login_form {
     position: relative;
-    width: 80%;
+    width: 50%;
     top: 30vh;
+    left: 28%;
     background: url("@/assets/images/login_form.png") no-repeat;
     background-size: cover;
     padding: 40px;
@@ -139,6 +140,9 @@ const rules = {
       font-size: 20px;
       color: white;
       margin: 20px 0px;
+    }
+    :deep(.el-form-item){
+      padding: 10px;
     }
 
     .login_btn {
