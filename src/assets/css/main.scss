@@ -1,0 +1,85 @@
+[class$='_text'] {
+  font-family: Source Han Sans SC, Source Han Sans SC-Bold;
+  font-weight: 700;
+}
+
+/* 页面内部 */
+.all_box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.box_center {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: calc(100% - 140px);
+
+  z-index: 3;
+}
+
+/* 滚动条*/
+::-webkit-scrollbar-thumb {
+  background-color: #072155;
+  height: 5px;
+  outline-offset: -2px;
+  outline: 2px solid #046aa6;
+  -webkit-border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #046aa6;
+  height: auto;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #046aa6;
+}
+
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  outline: none;
+  border: none;
+  caret-color: #fff;
+  background: transparent;
+  background: none;
+}
+
+input:focus {
+  outline: none;
+  background-color: transparent;
+  background: none;
+}
+
+input::selection {
+  background: transparent;
+}
+
+input::-webkit-input-placeholder {
+  color: #d0d0d0;
+}
+
+// flex换行
+.flexwrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+
+.flexwrap::after {
+  content: '';
+  flex: 1;
+}
